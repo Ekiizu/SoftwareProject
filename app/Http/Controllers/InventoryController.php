@@ -13,7 +13,8 @@ class InventoryController extends Controller
      */
     public function index()
     {
-        //
+        $inventories = Inventory::all();
+        return view('inventory.index', compact('inventories'));
     }
 
     /**
@@ -21,7 +22,7 @@ class InventoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('inventory.create');
     }
 
     /**
@@ -29,15 +30,30 @@ class InventoryController extends Controller
      */
     public function store(StoreInventoryRequest $request)
     {
-        //
+        $request->validate([
+
+        'inventory_name' => 'required'
+
+        ]);
+
+
+        Inventory::create([
+            'quantity' => "Test Quantity",
+            'created_at' => now(),
+            'expiry_date' => "soon",
+            'updated_at' => now(),
+        ]);
+
+        return to_route('inventory.index');
+
     }
 
-    /**
-     * Display the specified resource.
-     */
+
+
     public function show(Inventory $inventory)
     {
-        //
+        return view('inventory.show')->with('inventory', $inventory);
+
     }
 
     /**

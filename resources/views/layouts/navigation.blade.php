@@ -6,7 +6,7 @@
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('dashboard') }}">
-                        <img src="{{ asset('image/bugcat.gif') }}" alt="logo" class="block h-9 w-auto">
+                        <img src="{{ asset('image/cat.gif') }}" alt="logo" class="block h-9 w-auto">
                         {{-- need to fix --}}
                     </a>
                 </div>
@@ -17,6 +17,14 @@
                         {{ __('Dashboard') }}
                     </x-nav-link>
                 </div>
+
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link :href="route('inventory.index')" :active="request()->routeIs('inventory.index')">
+                        {{ __('Inventory') }}
+                    </x-nav-link>
+                </div>
+
+
             </div>
 
             <!-- Settings Dropdown -->

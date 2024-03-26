@@ -13,7 +13,12 @@ return new class extends Migration
     {
         Schema::create('inventories', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            // $table->unsignedBigInteger('product_id');
+            $table->integer('quantity');
+            $table->timestamp('created_at');
+            $table->timestamp('expiry_date');
+            $table->timestamp('updated_at');
+            // $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
         });
     }
 

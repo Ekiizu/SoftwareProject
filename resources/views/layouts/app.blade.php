@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'StockEase') }}</title>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
@@ -21,17 +21,17 @@
 
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <!-- Logo -->
-            <div class="shrink-0 flex items-center">
+            {{-- <div class="shrink-0 flex items-center">
                 <a href="{{ route('dashboard') }}">
-                    <img src="{{ asset('image/uhm.gif') }}" alt="Logo" class="block h-10 w-auto">
+                    <img src="{{ asset('image/cat.gif') }}" alt="Logo" class="block h-10 w-auto">
 
                 </a>
-            </div>
+            </div> --}}
             <div class="container">
 
 
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'StockEase') }}
+                    Placeholder name
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
