@@ -3,7 +3,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class = "container">
+<div class = "container mx-5 p-3">
     <h1> All Inventory </h1><table class= "table">
         <thead>
             <thead>

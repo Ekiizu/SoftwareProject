@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <div class="container">
+    <div class="container mx-5 p-3">
         <h3 class="text">Add new Inventory</h3>
         <form>
             <div class="form-row">

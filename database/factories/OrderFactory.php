@@ -17,10 +17,10 @@ class OrderFactory extends Factory
     public function definition(): array
     {
         return [
-        'quantity' => $faker->numberBetween(1, 100),
-        'total_cost' => $faker->randomFloat(2, 10, 1000), 
-        'order_date' => $faker->dateTimeBetween('-1 year', 'now'),
-        'delivery_date' => $faker->dateTimeBetween('now', '+1 year'),
+        'quantity' => $this->faker->numberBetween(1, 100),
+        'total_cost' => $this->faker->randomFloat(2, 10, 1000),
+        'order_date' => $this->faker->dateTimeBetween('-1 year', 'now'),
+        'delivery_date' => $this->faker->dateTimeBetween('now', '+1 year'),
         ];
     }
 }
