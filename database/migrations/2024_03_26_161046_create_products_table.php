@@ -15,8 +15,10 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('unit_price');
+            // $table->unsignedBigInteger('inventory_id');
+            // $table->foreign('inventory_id')->references('id')->on('inventories')->onDelete('cascade');
             $table->timestamps();
-            
+
         });
     }
 

@@ -17,9 +17,9 @@ class SupplierFactory extends Factory
     public function definition(): array
     {
         return [
-        'name' => $faker->name(),
-        'contact_info' => $faker->phoneNumber(),
-        'address' => $faker->address(), 
+        'name' => $this->faker->name(),
+        'contact_info' => $this->faker->phoneNumber(),
+        'address' => $this->faker->address(),
         ];
     }
 }

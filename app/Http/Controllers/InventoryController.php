@@ -50,11 +50,27 @@ class InventoryController extends Controller
 
 
 
-    public function show(Inventory $inventory)
+    // public function show(Inventory $inventory)
+    // {
+    //     return view('inventory.show')->with('inventory', $inventory);
+
+    // }
+
+    public function show($id)
     {
-        return view('inventory.show')->with('inventory', $inventory);
+
+        $inventory = Inventory::find($id);
+        return view('inventory.show', ['inventory' => $inventory]);
 
     }
+
+
+// public function show()
+// {
+//     $inventory = Inventory::all(); // Example: fetching the first inventory item
+//     return view('inventory.show', compact('inventory'));
+// }
+
 
     /**
      * Show the form for editing the specified resource.

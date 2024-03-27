@@ -3,7 +3,10 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\InventoryController;
+use App\Http\Controllers\HomeController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -35,7 +38,12 @@ require __DIR__.'/auth.php';
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
+// Route::get('/', [HomeController::class, 'index']);
 
 
 Route::resource('/inventory', InventoryController::class);
+
+Route::resource('/suppliers', SupplierController::class);
+
+
+
