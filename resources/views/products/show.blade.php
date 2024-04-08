@@ -3,35 +3,35 @@
 @section('content')
 <div class="container mx-5 p-3">
     <h1>View Inventory</h1>
-    @if($inventory)
+    @if($product)
         <table class="table">
             <tbody>
 
                 <tr>
                     <th>ID</th>
-                    <td>{{$inventory->id}}</td>
+                    <td>{{$product->product_id}}</td>
                 </tr>
 
 
                 <tr>
                     <th>Quantity</th>
-                    <td>{{$inventory->quantity}}</td>
+                    <td>{{$product->quantity}}</td>
                 </tr>
 
                 <tr>
                     <th>Created At</th>
-                    <td>{{$inventory->created_at}}</td>
+                    <td>{{$product->created_at}}</td>
                 </tr>
 
                 <!-- Assuming you mistakenly repeated the quantity row, I've replaced it with 'Updated At' -->
                 <tr>
                     <th>Expiry Date</th>
-                    <td>{{$inventory->expiry_date}}</td>
+                    <td>{{$product->expiry_date}}</td>
                 </tr>
 
                 <tr>
                     <th>Last Updated</th>
-                    <td>{{$inventory->updated_at}}</td>
+                    <td>{{$product->updated_at}}</td>
                 </tr>
             </tbody>
         </table>

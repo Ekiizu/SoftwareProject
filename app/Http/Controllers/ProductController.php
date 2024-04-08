@@ -5,9 +5,19 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
 use App\Models\Product;
+use App\Models\Inventory;
 
 class ProductController extends Controller
 {
+
+
+    public function productsByInventory($inventory_id)
+    {
+        $inventory = Inventory::findOrFail($inventory_id);
+        $products = $inventory->products; // Assuming 'products' is the relationship defined in Inventory model
+
+        return view('products.index', compact('products', 'inventory'));
+    }
     /**
      * Display a listing of the resource.
      */

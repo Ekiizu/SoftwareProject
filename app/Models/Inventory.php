@@ -12,7 +12,7 @@ class Inventory extends Model
     protected $fillable = [
 
 
-        'product_id',
+        // 'product_id',
         'quantity',
         'created_at',
         'expiry_date',
@@ -21,8 +21,8 @@ class Inventory extends Model
 
 ];
 
-// public function products()
-// {
-//     return $this->hasMany(Product::class);
-// }
+public function products()
+{
+    return $this->hasMany(Product::class);
+}
 }

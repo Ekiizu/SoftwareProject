@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('inventories', function (Blueprint $table) {
             $table->id();
 
-            $table->integer('product_id');
+            // $table->integer('product_id');
             $table->integer('quantity');
             $table->timestamp('created_at');
             $table->timestamp('expiry_date');

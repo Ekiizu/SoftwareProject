@@ -7,6 +7,7 @@ use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\InventoryController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\ProductController;
 
 
 /*
@@ -49,5 +50,6 @@ Route::resource('/suppliers', SupplierController::class);
 Route::resource('/orders', OrderController::class);
 
 
+Route::get('inventory/{inventory_id}/products', [ProductController::class, 'productsByInventory'])->name('inventory.products');
 
-
+// Route::get('/inventory/{inventory_id}/products', [InventoryController::class, 'products'])->name('inventory.products');
