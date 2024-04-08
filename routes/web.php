@@ -49,6 +49,7 @@ Route::resource('/suppliers', SupplierController::class);
 
 Route::resource('/orders', OrderController::class);
 
+// Route::get('/suppliers', [SupplierController::class, 'index'])->name('supplier.index');
 
 Route::get('inventory/{inventory_id}/products', [ProductController::class, 'productsByInventory'])->name('inventory.products');
 

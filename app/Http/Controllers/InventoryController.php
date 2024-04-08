@@ -30,24 +30,27 @@ class InventoryController extends Controller
      */
     public function store(StoreInventoryRequest $request)
     {
-        $request->validate([
+       // Validation passed, create and store inventory record
+       $inventory = new Inventory();
+       $inventory->name = $request->input('name');
+       $inventory->quantity = $request->input('quantity');
+       $inventory->price = $request->input('price');
+       $inventory->category = $request->input('category');
+       $inventory->created_at = $request->input('created_at');
+       $inventory->last_updated = $request->input('last_updated');
+       $inventory->expiration_date = $request->input('expiration_date');
 
-        'inventory_name' => 'required'
+       // Handle file upload (image)
+       if ($request->hasFile('image')) {
+           $imagePath = $request->file('image')->store('images');
+           $inventory->image_path = $imagePath;
+       }
 
-        ]);
+       $inventory->save();
 
-
-        Inventory::create([
-            'quantity' => "Test Quantity",
-            'created_at' => now(),
-            'expiry_date' => "soon",
-            'updated_at' => now(),
-        ]);
-
-        return to_route('inventory.index');
-
+       // Redirect to a success page or back to the form with a success message
+       return redirect()->route('inventory.index')->with('success', 'Inventory item created successfully!');
     }
-
 
 
     // public function show(Inventory $inventory)
