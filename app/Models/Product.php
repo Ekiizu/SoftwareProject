@@ -24,4 +24,9 @@ public function inventory(){
 return $this->belongsTo(Inventory::class);
 }
 
+// public function inventories()
+// {
+//     return $this->hasMany(Inventory::class);
+// }
+
 }

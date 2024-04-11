@@ -17,6 +17,8 @@ class InventoryController extends Controller
         return view('inventory.index', compact('inventories'));
     }
 
+ 
+
     /**
      * Show the form for creating a new resource.
      */
