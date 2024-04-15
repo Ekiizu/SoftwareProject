@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use App\Models\Product;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Category>
@@ -17,8 +18,8 @@ class CategoryFactory extends Factory
     public function definition(): array
     {
         return [
-            'product_id' => $faker->numberBetween(1, 100), 
-            'category_name' => $faker->word(),
+            // 'category_id' => $faker->numberBetween(1, 100),
+            'category_name' => $faker->unique()->word,
             'vat_rate' => $faker->randomFloat(2, 0, 25),
         ];
     }

@@ -2,38 +2,42 @@
 
 @extends('layouts.app')
 
+<!-- resources/views/your-view.blade.php -->
+
+
 @section('content')
-<div class = "container mx-5 p-3">
-    <h1> All Inventory </h1><table class= "table">
+<div class="container mx-5 p-3">
+    <h1>All Inventory</h1>
+
+    <table class="table">
         <thead>
-            <thead>
-                <a href="{{ route('inventory.create') }}" class="btn btn-success mb-2">Add Inventory</a>
-
-
-                <tr>
-                    <th>ID</th>
-                    <th>Quantity</th>
-                    <th>Created At</th>
-                    <th>Updated At</th>
-                    <th>Expiry Date</th>
-
-                </tr>
-            </thead>
-            <tbody>
-            @foreach ($inventories as $inventory)
             <tr>
-                <td><a href="{{ route('inventory.products', ['inventory_id' => $inventory->id]) }}">{{ $inventory->id }}</a></td>
-                <td>{{$inventory->quantity}}</td>
-                <td>{{$inventory->created_at}}</td>
-                <td>{{$inventory->updated_at}}</td>
-                <td>{{$inventory->expiry_date}}</td>
-
+                <th>ID</th>
+                <th>Quantity</th>
+                <th>Created At</th>
+                <th>Updated At</th>
+                <th>Expiry Date</th>
             </tr>
+        </thead>
+        <tbody>
+            @foreach ($inventories as $inventory)
+            <tr onclick="window.location='{{ route('inventory.products', ['inventory_id' => $inventory->id]) }}';" style="cursor: pointer;">
+                <td>{{ $inventory->id }}</a></td>
+                <td>{{ $inventory->quantity }}</td>
+                <td>{{ $inventory->created_at }}</td>
+                <td>{{ $inventory->updated_at }}</td>
+                <td>{{ $inventory->expiry_date }}</td>
+            </tr>
+            @endforeach
+        </tbody>
+    </table>
 
-     @endforeach
- </tbody>
+
 </div>
+
 @endsection
+
+
 
 
 {{-- <x-app-layout>

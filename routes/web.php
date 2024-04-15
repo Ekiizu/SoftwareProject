@@ -40,7 +40,6 @@ require __DIR__.'/auth.php';
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-// Route::get('/', [HomeController::class, 'index']);
 
 
 Route::resource('/inventory', InventoryController::class);
@@ -49,8 +48,10 @@ Route::resource('/suppliers', SupplierController::class);
 
 Route::resource('/orders', OrderController::class);
 
-// Route::get('/suppliers', [SupplierController::class, 'index'])->name('supplier.index');
-
 Route::get('inventory/{inventory_id}/products', [ProductController::class, 'productsByInventory'])->name('inventory.products');
 
-// Route::get('/inventory/{inventory_id}/products', [InventoryController::class, 'products'])->name('inventory.products');
+Route::delete('/product/{id}', [ProductController::class, 'destroy'])->name('products.destroy');
+
+Route::get('/product/{id}/edit',  [ProductController::class, 'edit'])->name('products.edit');
+
+Route::put('/products/{product}', [ProductController::class, 'update'])->name('products.update');

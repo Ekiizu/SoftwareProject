@@ -11,6 +11,8 @@
                     <th>Name</th>
                     <th>Contact Information</th>
                     <th>Address</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
 
 
                 </tr>
@@ -22,6 +24,17 @@
                 <td>{{$supply->name}}</td>
                 <td>{{$supply->contact_info}}</td>
                 <td>{{$supply->address}}</td>
+
+
+                <td>
+                    <a href="{{ route('products.edit', $supply->id) }}" class="btn btn-success">Edit</a>
+                    </td>
+                <td>
+                    <form action="{{ route('products.destroy', $supply->id) }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn delete-colour" onclick="return confirm('Are you sure?')">Delete</button>
+                    </form>
 
 
             </tr>

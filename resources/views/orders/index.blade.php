@@ -12,6 +12,8 @@
                     <th>Total Cost</th>
                     <th>Order Date</th>
                     <th>Delivery Date</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
 
 
                 </tr>
@@ -25,7 +27,17 @@
                 <td>{{$order->order_date}}</td>
                 <td>{{$order->delivery_date}}</td>
 
+                <td>
+                    <a href="{{ route('products.edit', $order->id) }}" class="btn btn-success">Edit</a>
+                    </td>
+                <td>
+                    <form action="{{ route('products.destroy', $order->id) }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn delete-colour" onclick="return confirm('Are you sure?')">Delete</button>
+                    </form>
 
+                </td>
             </tr>
 
      @endforeach

@@ -5,6 +5,7 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use App\Models\Inventory;
 use App\Models\Product;
+use App\Models\Category;
 
 
 
@@ -25,7 +26,10 @@ class ProductFactory extends Factory
         return [
             'name' => $this->faker->sentence(6),
             'unit_price' => $this->faker->randomFloat(2, 1, 1000),
+            
+
             'inventory_id' => $this->faker->randomElement($inventoryIds),
+            'category_id' => $this->faker->randomElement($inventoryIds),
         ];
     }
 }

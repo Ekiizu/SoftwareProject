@@ -14,19 +14,21 @@ class Product extends Model
         'name',
         'unit_price',
         // 'inventory_id'
+        // 'category_id'
 
 ];
 
 
 
-public function inventory(){
+    public function inventory(){
 
-return $this->belongsTo(Inventory::class);
-}
+    return $this->belongsTo(Inventory::class);
+    }
 
-// public function inventories()
-// {
-//     return $this->hasMany(Inventory::class);
-// }
+    public function category()
+        {
+            return $this->belongsTo(Category::class);
+        }
+
 
 }

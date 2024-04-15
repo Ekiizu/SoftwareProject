@@ -47,7 +47,20 @@
   }
 
   .card-header {
-    background: linear-gradient(to right,  #84ad62, #e41e67, ) ;
+    background: linear-gradient(to right,  #84ad62, #7b3ed0 ) ;
+  }
+
+
+  .custom-colour{
+    background-color: #7b3ed0; /* Replace with your desired custom color */
+    color: #f7efff; /* Text color for contrast */
+
+  }
+
+  .delete-colour{
+    background-color: #d03e67; /* Replace with your desired custom color */
+    color: #f7efff; /* Text color for contrast */
+
   }
 
 
