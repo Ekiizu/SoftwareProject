@@ -14,7 +14,7 @@
     width: 170px; /* Set the width of the sidebar */
     position: fixed; /* Fixed Sidebar (stay in place on scroll) */
     left: 0;
-    background: linear-gradient(to top, #7b3ed0, #84ad62);
+    background: linear-gradient(to top, #3eb8d0, #84ad62);
     overflow-x: hidden; /* Disable horizontal scroll */
 
   }
@@ -47,12 +47,12 @@
   }
 
   .card-header {
-    background: linear-gradient(to right,  #84ad62, #7b3ed0 ) ;
+    background: linear-gradient(to right,  #84ad62,#3eb8d0 ) ;
   }
 
 
   .custom-colour{
-    background-color: #7b3ed0; /* Replace with your desired custom color */
+    background-color: #3eb8d0; /* Replace with your desired custom color */
     color: #f7efff; /* Text color for contrast */
 
   }

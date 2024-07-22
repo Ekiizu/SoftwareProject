@@ -26,10 +26,10 @@ class ProductFactory extends Factory
         return [
             'name' => $this->faker->sentence(6),
             'unit_price' => $this->faker->randomFloat(2, 1, 1000),
-            
+
 
             'inventory_id' => $this->faker->randomElement($inventoryIds),
-            'category_id' => $this->faker->randomElement($inventoryIds),
+            // 'category_id' => $this->faker->randomElement($inventoryIds),
         ];
     }
 }

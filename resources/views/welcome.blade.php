@@ -21,7 +21,7 @@
 
 
             <div class="container">
-                <h4 style="color: rgb(91, 33, 239);">Welcome back!</h4>
+                <h4 style="color: rgb(33, 185, 223);">Welcome back!</h4>
 
                 <h5>Dashboard</h5>
                 <div class="row g-2 mt-2">
@@ -121,10 +121,10 @@
                                 <div class="card-body">
                                     <p class="card-text">
                                         <strong>Name:</strong> {{$inventory->id}} <br>
-                                        <strong><span style="color: rgb(128, 33, 223);">Quantity:</span></strong> {{$inventory->quantity}} <br>
+                                        <strong><span style="color: rgb(33, 185, 223);">Quantity:</span></strong> {{$inventory->quantity}} <br>
                                         <strong>Created At:</strong> {{$inventory->created_at->format('Y-m-d H:i:s')}} <br>
                                         <strong>Updated At:</strong> {{$inventory->updated_at->format('Y-m-d H:i:s')}} <br>
-                                        <strong><span style="color: rgb(125, 33, 223);">Expiry Date:</span></strong> {{$inventory->expiry_date}}
+                                        <strong><span style="color: rgb(33, 185, 223);">Expiry Date:</span></strong> {{$inventory->expiry_date}}
                                     </p>
                                 </div>
                             </div>
