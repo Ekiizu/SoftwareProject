@@ -45,9 +45,10 @@ class OrderController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Order $order)
+    public function edit($id)
     {
-        //
+        $order = Order::findOrFail($id);
+        return view('orders.edit', compact('order'));
     }
 
     /**

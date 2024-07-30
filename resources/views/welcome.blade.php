@@ -22,6 +22,7 @@
 
             <div class="container">
                 <h4 style="color: rgb(33, 185, 223);">Welcome back!</h4>
+                <h2 style="color: rgb(33, 185, 223)">── .✦</h2>
 
                 <h5>Dashboard</h5>
                 <div class="row g-2 mt-2">

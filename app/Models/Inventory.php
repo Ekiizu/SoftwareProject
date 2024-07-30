@@ -9,17 +9,15 @@ class Inventory extends Model
 {
     use HasFactory;
 
+    // Define fillable fields for mass assignment
     protected $fillable = [
-
-
-        // 'product_id',
+        'name',
         'quantity',
-        'created_at',
-        'expiry_date',
-        'updated_at'
-
-
-];
+        'price',
+        'category',
+        'expiration_date',
+        'image',
+    ];
 
 public function products()
 {

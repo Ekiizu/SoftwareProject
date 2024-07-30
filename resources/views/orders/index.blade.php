@@ -28,10 +28,10 @@
                 <td>{{$order->delivery_date}}</td>
 
                 <td>
-                    <a href="{{ route('products.edit', $order->id) }}" class="btn btn-success">Edit</a>
+                    <a href="{{ route('orders.edit', $order->id) }}" class="btn btn-success">Edit</a>
                     </td>
                 <td>
-                    <form action="{{ route('products.destroy', $order->id) }}" method="POST">
+                    <form action="{{ route('orders.destroy', $order->id) }}" method="POST">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn delete-colour" onclick="return confirm('Are you sure?')">Delete</button>

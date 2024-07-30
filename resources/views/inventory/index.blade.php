@@ -20,6 +20,7 @@
             </tr>
         </thead>
         <tbody>
+
             @foreach ($inventories as $inventory)
             <tr onclick="window.location='{{ route('inventory.products', ['inventory_id' => $inventory->id]) }}';" style="cursor: pointer;">
                 <td>{{ $inventory->id }}</a></td>
@@ -28,6 +29,7 @@
                 <td>{{ $inventory->updated_at }}</td>
                 <td>{{ $inventory->expiry_date }}</td>
             </tr>
+
             @endforeach
         </tbody>
     </table>

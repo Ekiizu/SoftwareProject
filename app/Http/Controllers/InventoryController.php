@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+
+use Illuminate\Http\Request;
 use App\Http\Requests\StoreInventoryRequest;
 use App\Http\Requests\UpdateInventoryRequest;
 use App\Models\Inventory;
@@ -17,7 +19,7 @@ class InventoryController extends Controller
         return view('inventory.index', compact('inventories'));
     }
 
- 
+
 
     /**
      * Show the form for creating a new resource.
@@ -30,28 +32,29 @@ class InventoryController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreInventoryRequest $request)
+    public function store(Request $request)
     {
-       // Validation passed, create and store inventory record
-       $inventory = new Inventory();
-       $inventory->name = $request->input('name');
-       $inventory->quantity = $request->input('quantity');
-       $inventory->price = $request->input('price');
-       $inventory->category = $request->input('category');
-       $inventory->created_at = $request->input('created_at');
-       $inventory->last_updated = $request->input('last_updated');
-       $inventory->expiration_date = $request->input('expiration_date');
+        // Validate the request
+        $validatedData = $request->validate([
+            'name' => 'required|string|max:255',
+            'quantity' => 'required|integer|min:0',
+            'price' => 'required|numeric|min:0',
+            'category' => 'required|string',
+            'expiration_date' => 'required|date',
+            'image' => 'nullable|image|mimes:jpg,jpeg,png,gif|max:2048',
+            'confirm' => 'accepted',
+        ]);
 
-       // Handle file upload (image)
-       if ($request->hasFile('image')) {
-           $imagePath = $request->file('image')->store('images');
-           $inventory->image_path = $imagePath;
-       }
+        // Handle image upload
+        if ($request->hasFile('image')) {
+            $imagePath = $request->file('image')->store('images', 'public');
+            $validatedData['image'] = $imagePath;
+        }
 
-       $inventory->save();
+        // Create new inventory record
+        Inventory::create($validatedData);
 
-       // Redirect to a success page or back to the form with a success message
-       return redirect()->route('inventory.index')->with('success', 'Inventory item created successfully!');
+        return redirect()->route('inventory.index')->with('success', 'Inventory added successfully');
     }
 
 

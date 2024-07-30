@@ -28,7 +28,6 @@
                     <tr>
                         <td>{{ $product->id }}</td>
                         <td>{{ $product->name }}</td>
-                        
                         <td>{{ $product->unit_price }}</td>
                         <td>Dairy</td>
 

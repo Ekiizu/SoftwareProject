@@ -10,101 +10,86 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="my-6 p-6 bg-white border-b border-gray-200 shadow-sm sm:rounded-lg">
-                <form action="{{ route('products.update', ['product' => $product->id]) }}" method="post" enctype="multipart/form-data">
+                <form action="{{ route('products.update', $product->id) }}" method="post" enctype="multipart/form-data">
                     @method('PUT')
                     @csrf
 
                     <div class="container mx-5 p-3">
-                        <h3 class="text">Edit Inventory! </h3>
-                        <form>
-                            <div class="form-row">
-                                <div class="col-md-4 mb-3">
-                                    <label for="validationServer01">Name</label>
-                                    <input type="text" class="form-control @error('name') is-invalid @enderror" id="validationServer01" name="name" value="{{ old('name') }}" required>
-                                    @error('name')
-                                        <div class="invalid-feedback">{{ $message }}</div>
-                                    @enderror
-                                </div>
-                              <div class="col-md-4 mb-3">
+                        <h3 class="text">Edit a Product</h3>
+                        <h2 style="color: rgb(74, 118, 45)">── .✦</h2>
+
+                        <div class="form-row">
+                            <div class="col-md-4 mb-3">
+                                <label for="name">Name</label>
+                                <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" value="{{ old('name', $product->name) }}" required>
+                                @error('name')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
+                            <div class="col-md-4 mb-3">
                                 <label for="quantity">Quantity</label>
-                                <input type="text" class="form-control" id="validationServer02"  required>
-                                <div class="valid-feedback">
-                                  Looks good!
-                                </div>
-                              </div>
-
+                                <input type="text" class="form-control @error('quantity') is-invalid @enderror" id="quantity" name="quantity" value="{{ old('quantity', $product->inventory->quantity ?? '') }}" required>
+                                @error('quantity')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
                             </div>
-                            <div class="form-row">
-                              <div class="col-md-6 mb-3">
-                                <label for="validationServer03">Price</label>
-                                <input type="text" class="form-control" id="validationServer03" required>
-                                <div class="invalid-feedback">
-                                  Please enter a price
-                                </div>
-                              </div>
-                              <div class="col-md-3 mb-3">
-                                <div class="form-group col-md-4">
-                                    <label for="inputState">Category</label>
-                                    <select id="inputState" class="form-control">
-                                      <option selected>Dairy</option>
-                                      <option>Meat</option>
-                                      <option>Fruit</option>
-                                      <option>Vegetable</option>
-                                      <option>Bread</option>
-                                    </select>
-                                  </div>
-                              </div>
+                        </div>
 
-
-
-                              <div class="col-md-3 mb-3">
-                                <label for="validationServer05">Created At</label>
-                                <input type="text" class="form-control" id="validationServer05"  required>
-                                <div class="invalid-feedback">
-                                  Please provide a valid zip.
-                                </div>
-                              </div>
-                              <div class="col-md-3 mb-3">
-                                <label for="validationServer05">Last Updated</label>
-                                <input type="text" class="form-control" id="validationServer05"  required>
-                                <div class="invalid-feedback">
-                                  Please provide a valid zip.
-                                </div>
-                              </div>
-                              <div class="col-md-3 mb-3">
-                                <label for="validationServer05">Expiration Date</label>
-                                <input type="text" class="form-control" id="validationServer05"  required>
-                                <div class="invalid-feedback">
-                                  Please provide a valid zip.
-                                </div>
-                              </div>
+                        <div class="form-row">
+                            <div class="col-md-6 mb-3">
+                                <label for="price">Unit Price</label>
+                                <input type="text" class="form-control @error('price') is-invalid @enderror" id="price" name="unit_price" value="{{ old('unit_price', $product->inventory->unit_price ?? '') }}" required>
+                                @error('price')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
                             </div>
-
+                            <div class="col-md-3 mb-3">
+                                <label for="category">Category</label>
+                                <select id="category" name="category" class="form-control @error('category') is-invalid @enderror">
+                                    <option value="Dairy" {{ old('category', $product->category) == 'Dairy' ? 'selected' : '' }}>Dairy</option>
+                                    <option value="Meat" {{ old('category', $product->category) == 'Meat' ? 'selected' : '' }}>Meat</option>
+                                    <option value="Fruit" {{ old('category', $product->category) == 'Fruit' ? 'selected' : '' }}>Fruit</option>
+                                    <option value="Vegetable" {{ old('category', $product->category) == 'Vegetable' ? 'selected' : '' }}>Vegetable</option>
+                                    <option value="Bread" {{ old('category', $product->category) == 'Bread' ? 'selected' : '' }}>Bread</option>
+                                </select>
+                                @error('category')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
 
                             <div class="col-md-3 mb-3">
-                                <div class="custom-file">
-                                  <input type="file" class="custom-file-input" id="customFile">
-                                  <label class="custom-file-label" for="customFile">Please Submit an Image</label>
-                                </div>
-                                  </div>
+                                <label for="expiration_date">Expiration Date</label>
+                                <input type="date" class="form-control @error('expiration_date') is-invalid @enderror" id="expiration_date" name="expiration_date" value="{{ old('expiration_date', $product->inventory->expiration_date ?? '') }}" required>
+                                @error('expiration_date')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
+                        </div>
 
-                            <div class="form-group">
-                              <div class="form-check">
-                                <input class="form-check-input is-valid" type="checkbox" value="" id="invalidCheck3" required>
-                                <label class="form-check-label" for="invalidCheck3">
-                                  Is this all correct?
+                        {{-- <div class="col-md-3 mb-3">
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="customFile" name="image">
+                                <label class="custom-file-label" for="customFile">Please Submit an Image</label>
+                            </div>
+                        </div> --}}
+
+                        <div class="form-group">
+                            <div class="form-check">
+                                <input class="form-check-input @error('confirm') is-invalid @enderror" type="checkbox" value="1" id="confirm" name="confirm" required>
+                                <label class="form-check-label" for="confirm">
+                                    Is this all correct?
                                 </label>
-                                <div class="invalid-feedback">
-                                  You must agree before submitting.
-                                </div>
-                              </div>
-
-                            </form>
+                                @error('confirm')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
+                        </div>
 
                         <button type="submit" class="btn btn-success">Update</button>
+                    </div>
                 </form>
             </div>
         </div>
     </div>
-
 @endsection
+

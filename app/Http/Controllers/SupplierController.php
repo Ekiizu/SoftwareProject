@@ -17,7 +17,7 @@ class SupplierController extends Controller
         return view('suppliers.index', compact('suppliers'));
     }
 
-    
+
 
     /**
      * Show the form for creating a new resource.
@@ -49,9 +49,10 @@ class SupplierController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Supplier $supplier)
+    public function edit($id)
     {
-        //
+        $supplier = Supplier::findOrFail($id);
+        return view('suppliers.edit', compact('supplier'));
     }
 
     /**

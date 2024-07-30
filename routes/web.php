@@ -48,6 +48,12 @@ Route::resource('/suppliers', SupplierController::class);
 
 Route::resource('/orders', OrderController::class);
 
+// Route for displaying the form
+Route::get('/inventory/create', [InventoryController::class, 'create'])->name('inventory.create');
+
+// Route for handling form submission
+Route::post('/inventory', [InventoryController::class, 'store'])->name('inventory.store');
+
 Route::get('inventory/{inventory_id}/products', [ProductController::class, 'productsByInventory'])->name('inventory.products');
 
 Route::delete('/product/{id}', [ProductController::class, 'destroy'])->name('products.destroy');
@@ -55,3 +61,20 @@ Route::delete('/product/{id}', [ProductController::class, 'destroy'])->name('pro
 Route::get('/product/{id}/edit',  [ProductController::class, 'edit'])->name('products.edit');
 
 Route::put('/products/{product}', [ProductController::class, 'update'])->name('products.update');
+
+
+
+Route::delete('/supplier/{id}', [SupplierController::class, 'destroy'])->name('suppliers.destroy');
+
+Route::get('/supplier/{id}/edit',  [SupplierController::class, 'edit'])->name('suppliers.edit');
+
+Route::put('/supplier/{product}', [SupplierController::class, 'update'])->name('suppliers.update');
+
+
+
+Route::delete('/order/{id}', [OrderController::class, 'destroy'])->name('orders.destroy');
+
+Route::get('/order/{id}/edit',  [OrderController::class, 'edit'])->name('orders.edit');
+
+Route::put('/order/{product}', [OrderController::class, 'update'])->name('orders.update');
+

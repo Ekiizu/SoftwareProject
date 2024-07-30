@@ -21,6 +21,7 @@ class InventoryFactory extends Factory
     {
         return [
 
+            
             'quantity' => $this->faker->numberBetween(1, 1000),
             'created_at' => $this->faker->dateTimeBetween('-1 year', 'now'),
             'expiry_date' => $this->faker->dateTimeBetween('now', '+1 year'),

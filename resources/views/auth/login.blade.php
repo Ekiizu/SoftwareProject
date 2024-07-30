@@ -6,6 +6,7 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header text-white">{{ __('Login') }}</div>
+                <h2 style="color:#69973a;">── .✦</h2>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">

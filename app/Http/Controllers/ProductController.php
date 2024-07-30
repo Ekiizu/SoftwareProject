@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
 use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
 use App\Models\Product;
@@ -64,16 +65,38 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
+        // Validate the request
         $validatedData = $request->validate([
-            'id' => 'required|string|max:255',
-            'name' => 'required|integer',
-            'unit_price' => 'required|numeric',
-
+            'name' => 'required|string|max:255',
+            'quantity' => 'required|integer|min:0',
+            'unit_price' => 'required|numeric|min:0',
+            'category' => 'required|string',
+            'expiration_date' => 'required|date',
+            'image' => 'nullable|image|mimes:jpg,jpeg,png,gif|max:2048',
+            'confirm' => 'accepted',
         ]);
 
-        $product->update($validatedData);
+        // Update the product
+        $product->update([
+            'name' => $validatedData['name'],
+            'category' => $validatedData['category'],
+        ]);
 
-        return redirect()->route('products.index')->with('success', 'Product updated successfully.');
+        // Update the inventory
+        $inventory = $product->inventory; // Assuming relationship exists
+        $inventory->update([
+            'quantity' => $validatedData['quantity'],
+            'price' => $validatedData['price'],
+            'expiration_date' => $validatedData['expiration_date'],
+        ]);
+
+        // Handle image upload if present
+        if ($request->hasFile('image')) {
+            $imagePath = $request->file('image')->store('images', 'public');
+            $product->update(['image' => $imagePath]);
+        }
+
+        return redirect()->route('products.index')->with('success', 'Product updated successfully');
     }
 
 
