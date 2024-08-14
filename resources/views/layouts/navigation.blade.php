@@ -18,7 +18,7 @@
                     </x-nav-link>
                 </div>
 
-                {
+                
 
 
             </div>
