@@ -11,7 +11,7 @@ class UpdateOrderRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true; //NO WAYYYY!!!! IT WAS ONE WORD THE WHOLE TIME
     }
 
     /**
@@ -22,7 +22,7 @@ class UpdateOrderRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            
         ];
     }
 }

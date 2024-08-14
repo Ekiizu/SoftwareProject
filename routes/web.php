@@ -57,6 +57,7 @@ Route::post('/inventory', [InventoryController::class, 'store'])->name('inventor
 
 Route::get('inventory/{inventory_id}/products', [ProductController::class, 'productsByInventory'])->name('inventory.products');
 
+
 Route::delete('/product/{id}', [ProductController::class, 'destroy'])->name('products.destroy');
 
 Route::get('/product/{id}/edit',  [ProductController::class, 'edit'])->name('products.edit');

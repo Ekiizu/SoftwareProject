@@ -8,9 +8,7 @@ use App\Models\Supplier;
 
 class SupplierController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+
     public function index()
     {
         $suppliers = Supplier::all();
@@ -62,6 +60,7 @@ class SupplierController extends Controller
     public function update(UpdateSupplierRequest $request, Supplier $supplier)
     {
 
+
         $validatedData = $request->validate([
             'name' => 'required|string|max:255',
             'contact_info' => 'required|string|max:255',
@@ -76,8 +75,16 @@ class SupplierController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Supplier $supplier)
+    // public function destroy(Supplier $supplier)
+    public function destroy($id)
     {
-        //
+        // Find the supplier by id
+        $supplier = Supplier::findOrFail($id);
+
+        // Delete the supplier
+        $supplier->delete();
+
+        // Redirect or return a response
+        return redirect()->route('suppliers.index')->with('success', 'Supplier deleted successfully');
     }
 }
