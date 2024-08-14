@@ -38,7 +38,7 @@ class InventoryController extends Controller
         $validatedData = $request->validate([
             'name' => 'required|string|max:255',
             'quantity' => 'required|integer|min:0',
-            'price' => 'required|numeric|min:0',
+            'unit_price' => 'required|numeric|min:0',
             'category' => 'required|string',
             'expiration_date' => 'required|date',
             'image' => 'nullable|image|mimes:jpg,jpeg,png,gif|max:2048',

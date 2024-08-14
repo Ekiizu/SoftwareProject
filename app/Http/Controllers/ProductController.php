@@ -86,8 +86,8 @@ class ProductController extends Controller
         $inventory = $product->inventory; // Assuming relationship exists
         $inventory->update([
             'quantity' => $validatedData['quantity'],
-            'price' => $validatedData['price'],
-            'expiration_date' => $validatedData['expiration_date'],
+            'unit_price' => $validatedData['unit_price'],
+            // 'expiration_date' => $validatedData['expiration_date'],
         ]);
 
         // Handle image upload if present
@@ -96,7 +96,7 @@ class ProductController extends Controller
             $product->update(['image' => $imagePath]);
         }
 
-        return redirect()->route('products.index')->with('success', 'Product updated successfully');
+        return redirect()->route('inventory.index')->with('success', 'Product updated successfully');
     }
 
 

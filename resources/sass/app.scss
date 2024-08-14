@@ -10,12 +10,12 @@
 
 /* The sidebar menu */
 .sidenav {
-    height: 250%; /* Full-height: remove this if you want "auto" height */
-    width: 170px; /* Set the width of the sidebar */
-    position: absolute; /* Fixed Sidebar (stay in place on scroll) */
+    height: 250%;
+    width: 170px; /* set the width of the sidebar */
+    position: absolute; /* fixed Sidebar (stay in place on scroll) */
     left: 0;
     background: linear-gradient(to top, #3eb8d0, #84ad62);
-    overflow-x: hidden; /* Disable horizontal scroll */
+    overflow-x: hidden; /* disable horizontal scroll */
 
   }
 
@@ -29,14 +29,14 @@
     padding-top: 20px;
   }
 
-  /* When you mouse over the navigation links, change their color */
+
   .sidenav a:hover {
     color: #59635b;
   }
 
-  /* Style page content */
+
   .main {
-    margin-left: 160px; /* Same as the width of the sidebar */
+    margin-left: 160px;
     padding: 0px 10px;
   }
 
@@ -52,15 +52,24 @@
 
 
   .custom-colour{
-    background-color: #3eb8d0; /* Replace with your desired custom color */
-    color: #f7efff; /* Text color for contrast */
+    background-color: #3eb8d0;
+    color: #f7efff;
 
   }
 
   .delete-colour{
-    background-color: #d03e67; /* Replace with your desired custom color */
-    color: #f7efff; /* Text color for contrast */
+    background-color: #d03e67;
+    color: #f7efff;
 
   }
 
+
+  tr:hover td {
+    color: #3eb8d0 /* changes colour on hover */
+}
+
+
+tr:hover {
+    background-color: #f0f0f0;
+}
 

@@ -36,10 +36,11 @@
                         </div>
 
                         <div class="form-row">
+                            <!-- Unit Price Field -->
                             <div class="col-md-6 mb-3">
                                 <label for="price">Unit Price</label>
-                                <input type="text" class="form-control @error('price') is-invalid @enderror" id="price" name="unit_price" value="{{ old('unit_price', $product->inventory->unit_price ?? '') }}" required>
-                                @error('price')
+                                <input type="text" class="form-control @error('unit_price') is-invalid @enderror" id="price" name="unit_price" value="{{ old('unit_price', $product->inventory->unit_price ?? '') }}" required>
+                                @error('unit_price')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
                             </div>
@@ -79,6 +80,7 @@
                                 <label class="form-check-label" for="confirm">
                                     Is this all correct?
                                 </label>
+
                                 @error('confirm')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror

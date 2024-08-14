@@ -66,15 +66,17 @@ Route::put('/products/{product}', [ProductController::class, 'update'])->name('p
 
 Route::delete('/supplier/{id}', [SupplierController::class, 'destroy'])->name('suppliers.destroy');
 
-Route::get('/supplier/{id}/edit',  [SupplierController::class, 'edit'])->name('suppliers.edit');
+Route::get('/supplier/{id}',  [SupplierController::class, 'edit'])->name('suppliers.edit');
 
-Route::put('/supplier/{product}', [SupplierController::class, 'update'])->name('suppliers.update');
+Route::put('/suppliers/{supplier}', [SupplierController::class, 'update'])->name('suppliers.update');
+
 
 
 
 Route::delete('/order/{id}', [OrderController::class, 'destroy'])->name('orders.destroy');
 
-Route::get('/order/{id}/edit',  [OrderController::class, 'edit'])->name('orders.edit');
+Route::get('/order/{id}',  [OrderController::class, 'edit'])->name('orders.edit');
 
-Route::put('/order/{product}', [OrderController::class, 'update'])->name('orders.update');
+Route::put('/order/{order}', [OrderController::class, 'update'])->name('orders.update');
+
 

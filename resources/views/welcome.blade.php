@@ -56,9 +56,9 @@
                     </div>
 
                     <!-- Supplier Cards -->
-                    <div class="col-md-6"> {{-- Adjust the column width to 6 for larger screens --}}
+                    <div class="col-md-6"> {{-- Adjusted the column width to 6 for larger screens --}}
                         @php
-                            // Filter and get the next upcoming delivery based on delivery_date
+                            // filter and get the next upcoming delivery based on delivery_date
                             $nextDelivery = $orders->sortBy('delivery_date')->first();
                         @endphp
 
@@ -121,7 +121,7 @@
                                 </div>
                                 <div class="card-body">
                                     <p class="card-text">
-                                        <strong>Name:</strong> {{$inventory->id}} <br>
+                                        <strong>ID:</strong> {{$inventory->id}} <br>
                                         <strong><span style="color: rgb(33, 185, 223);">Quantity:</span></strong> {{$inventory->quantity}} <br>
                                         <strong>Created At:</strong> {{$inventory->created_at->format('Y-m-d H:i:s')}} <br>
                                         <strong>Updated At:</strong> {{$inventory->updated_at->format('Y-m-d H:i:s')}} <br>

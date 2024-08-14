@@ -58,9 +58,19 @@ class SupplierController extends Controller
     /**
      * Update the specified resource in storage.
      */
+
     public function update(UpdateSupplierRequest $request, Supplier $supplier)
     {
-        //
+
+        $validatedData = $request->validate([
+            'name' => 'required|string|max:255',
+            'contact_info' => 'required|string|max:255',
+            'address' => 'required|string|max:255',
+        ]);
+
+        $supplier->update($validatedData);
+
+        return redirect()->route('suppliers.index')->with('success', 'Supplier updated successfully.');
     }
 
     /**

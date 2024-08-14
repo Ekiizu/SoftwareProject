@@ -23,7 +23,7 @@
                     <td>{{$inventory->created_at}}</td>
                 </tr>
 
-                <!-- Assuming you mistakenly repeated the quantity row, I've replaced it with 'Updated At' -->
+               
                 <tr>
                     <th>Expiry Date</th>
                     <td>{{$inventory->expiry_date}}</td>
