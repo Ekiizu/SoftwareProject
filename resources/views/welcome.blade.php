@@ -10,7 +10,7 @@
     <a href="{{ route('inventory.index') }}">Inventory</a>
     <a href="{{ route('suppliers.index') }}">Suppliers</a>
     <a href="{{ route('orders.index') }}">Orders</a>
-    <a href="#">Contact</a>
+    <a href="{{ route('contact.index') }}">Contact</a>
 </div>
 
 <div class="container mx-6 p-4">

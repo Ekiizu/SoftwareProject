@@ -8,6 +8,7 @@ use App\Http\Controllers\InventoryController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ContactController;
 
 
 /*
@@ -80,3 +81,7 @@ Route::get('/order/{id}',  [OrderController::class, 'edit'])->name('orders.edit'
 Route::put('/order/{order}', [OrderController::class, 'update'])->name('orders.update');
 
 
+Route::get('/contact', [ContactController::class, 'index'])->name('contact.index');
+
+// Route to handle the form submission
+Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
